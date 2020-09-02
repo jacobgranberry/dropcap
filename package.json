@@ -26,9 +26,14 @@
     ]
   },
   "dependencies": {
+    "firebase": "^7.19.1",
+    "firebase-admin": "^9.1.1",
+    "js-cookie": "^2.2.1",
     "next": "latest",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-firebaseui": "^4.1.0",
+    "swr": "^0.3.2"
   },
   "devDependencies": {
     "@testing-library/react": "^10.0.1",
