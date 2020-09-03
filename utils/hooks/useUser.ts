@@ -12,7 +12,7 @@ import { mapUserData } from '../auth/mapUserData'
 
 initFirebase()
 
-interface User {
+type User = {
   id: string
   email: string
   token: string
