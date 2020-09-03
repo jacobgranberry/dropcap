@@ -1,30 +1,43 @@
-import React from "react";
-import { ThemeProvider as EmotionThemeProvider } from "emotion-theming";
+import React, { FC, useState, useEffect, useContext, createContext, Dispatch } from 'react';
+import { ThemeProvider as EmotionThemeProvider } from 'emotion-theming';
 import { GlobalStyles } from '../theme/globalStyles';
-import theme from "../theme/theme";
+import theme from '../theme/theme';
 
-const defaultContextData = {
-  dark: false,
-  toggle: () => {}
+type Theme = {
+  dark: boolean;
+  toggle: () => void;
 };
 
-const ThemeContext = React.createContext(defaultContextData);
-const useTheme = () => React.useContext(ThemeContext);
+interface ThemeState {
+  dark: boolean;
+  hasThemeMounted: boolean;
+}
 
-const useEffectDarkMode = () => {
-  const [themeState, setThemeState] = React.useState({
+const ThemeContext = createContext<Theme>({
+  dark: false,
+  toggle: () => {},
+});
+
+const useTheme = () => useContext(ThemeContext);
+
+const useEffectDarkMode = (): any => {
+  const [themeState, setThemeState] = useState<ThemeState>({
     dark: false,
-    hasThemeMounted: false
+    hasThemeMounted: false,
   });
-  React.useEffect(() => {
-    const lsDark = localStorage.getItem("dark") === "true";
-    setThemeState({ ...themeState, dark: lsDark, hasThemeMounted: true });
+  useEffect(() => {
+    const isDark = localStorage.getItem('dark') === 'true';
+    setThemeState({ ...themeState, dark: isDark, hasThemeMounted: true });
   }, []);
 
   return [themeState, setThemeState];
 };
 
-const ThemeProvider = ({ children }) => {
+interface ThemeProviderProps {
+  children: React.ReactNode;
+}
+
+const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
   const [themeState, setThemeState] = useEffectDarkMode();
 
   if (!themeState.hasThemeMounted) {
@@ -33,18 +46,18 @@ const ThemeProvider = ({ children }) => {
 
   const toggle = () => {
     const dark = !themeState.dark;
-    localStorage.setItem("dark", JSON.stringify(dark));
+    localStorage.setItem('dark', JSON.stringify(dark));
     setThemeState({ ...themeState, dark });
   };
 
-  const computedTheme = themeState.dark ? theme("dark") : theme("light");
+  const computedTheme = themeState.dark ? theme('dark') : theme('light');
 
   return (
     <EmotionThemeProvider theme={computedTheme}>
       <ThemeContext.Provider
         value={{
           dark: themeState.dark,
-          toggle
+          toggle,
         }}
       >
         <GlobalStyles />

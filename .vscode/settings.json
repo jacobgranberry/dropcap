@@ -3,5 +3,10 @@
     "editor.codeActionsOnSave": {
       "source.fixAll": true,
       "source.fixAll.eslint": true
-    }
+    },
+    "cSpell.words": [
+      "firebaseui",
+      "react",
+      "react firebaseui"
+    ]
   }
