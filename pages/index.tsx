@@ -1,6 +1,8 @@
 import useSWR from 'swr'
 import Link from 'next/link'
 import { useUser } from '../utils/hooks/useUser'
+import { useTheme } from "../contexts/themeContext";
+import { Box } from 'rebass';
 
 const fetcher = (url: string, token: string) =>
   fetch(url, {
@@ -11,13 +13,17 @@ const fetcher = (url: string, token: string) =>
 
 export const Home = (): JSX.Element => {
   const { user, logout } = useUser()
+  const themeState = useTheme();
   const { data, error } = useSWR(
     user ? ['/api/getFood', user.token] : null,
     fetcher
   )
   if (!user) {
     return (
-      <>
+      <Box bg="background">
+      <button onClick={() => themeState.toggle()}>
+          {themeState.dark ? "Switch to Light Mode" : "Switch to Dark Mode"}
+        </button>
         <p>Hi there!</p>
         <p>
           You are not signed in.{' '}
@@ -25,14 +31,14 @@ export const Home = (): JSX.Element => {
             <a>Sign in</a>
           </Link>
         </p>
-      </>
+      </Box>
     )
   }
 
   console.log(user)
 
   return (
-    <div>
+    <Box bg="background">
       <div>
         <p>You're signed in. Email: {user.email}</p>
         <p
@@ -54,11 +60,11 @@ export const Home = (): JSX.Element => {
       </div>
       {error && <div>Failed to fetch food!</div>}
       {data && !error ? (
-        <div>Your favorite food is {data.food}.</div>
+        <Box>Your favorite food is {data.food}.</Box>
       ) : (
         <div>Loading...</div>
       )}
-    </div>
+    </Box>
   )
 
 }

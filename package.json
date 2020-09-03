@@ -28,6 +28,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.35",
     "@emotion/styled": "^10.0.27",
+    "@rebass/forms": "^4.0.6",
     "emotion": "^10.0.27",
     "emotion-server": "^10.0.27",
     "emotion-theming": "^10.0.27",
@@ -38,6 +39,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-firebaseui": "^4.1.0",
+    "rebass": "^4.0.7",
     "swr": "^0.3.2"
   },
   "devDependencies": {
