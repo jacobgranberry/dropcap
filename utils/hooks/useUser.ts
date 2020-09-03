@@ -19,7 +19,7 @@ interface User {
 }
 
 const useUser = () => {
-  const [user, setUser] = useState<User | undefined>()
+  const [user, setUser] = useState<User | undefined | void>()
   const router = useRouter()
 
   const logout = async () => {
