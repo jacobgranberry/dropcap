@@ -3,7 +3,7 @@ import { Box } from 'rebass';
 
 type ContainerProps = {
   variant: string;
-  className: string;
+  className?: string;
 };
 
 export const Container: FC<ContainerProps> = ({ variant, children, className, ...props }) => (
