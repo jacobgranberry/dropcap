@@ -103,7 +103,7 @@ function getCollectionData(collection) {
 
 function useQueryCache(query) {
   // Ref for storing previous query object
-  const previousRef = useRef();
+  const previousRef = useRef(null);
   const previous = previousRef.current;
 
   // Determine if query object is equal to previous
