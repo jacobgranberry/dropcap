@@ -2,10 +2,10 @@ import React from 'react';
 import { Flex, Box, Text } from 'rebass';
 import { Container } from '../../atoms/container/container';
 import Link from 'next/link';
-// import { useUser } from '../../../utils/hooks/useUser';
+import { useAuth } from '../../../utils/hooks/useAuth';
 
 export const Nav = () => {
-  // const { user, logout } = useUser();
+  const { user, signout } = useAuth();
 
   return (
     <Box as="header" className="nav" width={1}>
@@ -28,13 +28,13 @@ export const Nav = () => {
             </Flex>
           </Box>
           <Box>
-            {/* {!user ? (
+            {!user ? (
               <Link href={'/login'}>
                 <a>Sign in</a>
               </Link>
             ) : (
-              <button onClick={() => logout()}>Log Out</button>
-            )} */}
+              <button onClick={() => signout()}>Log Out</button>
+            )}
           </Box>
         </Flex>
       </Container>

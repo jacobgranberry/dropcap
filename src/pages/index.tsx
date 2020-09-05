@@ -13,6 +13,7 @@ import { MainLayout } from '../components/layouts/mainLayout/mainLayout';
 
 export const Home = (): JSX.Element => {
   const themeState = useTheme();
+
   // const { data, error } = useSWR(user ? ['/api/getFood', user.token] : null, fetcher);
 
   // if (!user) {
