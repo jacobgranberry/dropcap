@@ -1,31 +1,31 @@
 import React from 'react';
 import Link from 'next/link';
 
-function AuthFooter(props) {
+const AuthFooter = ({ type, typeValues }) => {
   return (
     <div className="AuthFooter has-text-centered">
-      {props.type === 'signup' && (
+      {type === 'signup' && (
         <>
           Have an account already?
           <Link href="/auth/signin">
-            <a>{props.typeValues.linkTextSignin}</a>
+            <a>{typeValues.linkTextSignin}</a>
           </Link>
         </>
       )}
 
-      {props.type === 'signin' && (
+      {type === 'signin' && (
         <>
           <Link href="/auth/signup">
-            <a>{props.typeValues.linkTextSignup}</a>
+            <a>{typeValues.linkTextSignup}</a>
           </Link>
 
           <Link href="/auth/forgotpass">
-            <a>{props.typeValues.linkTextForgotpass}</a>
+            <a>{typeValues.linkTextForgotpass}</a>
           </Link>
         </>
       )}
     </div>
   );
-}
+};
 
 export default AuthFooter;

@@ -1,23 +1,21 @@
 import React from 'react';
 import AuthSection from './../../components/molecules/authSection';
 import { useRouter } from 'next/router';
+import { Flex, Box } from 'rebass';
 
-function AuthTypePage(props) {
+const AuthTypePage = () => {
   const router = useRouter();
   const { type } = router.query;
 
   return (
-    <AuthSection
-      color="white"
-      size="large"
-      backgroundImage=""
-      backgroundImageOpacity={1}
-      type={type}
-      providers={['google', 'facebook', 'twitter']}
-      afterAuthPath="/dashboard"
-    />
+    <Flex height="100%" flexDirection="row">
+      <Box as="section" sx={{ flexGrow: 0 }} width={[520]} bg="rebeccapurple" />
+      <Flex as="section" flexDirection="column" flex={1}>
+        <AuthSection type={type} providers={['google', 'facebook', 'twitter']} afterAuthPath="/dashboard" />
+      </Flex>
+    </Flex>
   );
-}
+};
 
 // Tell Next.js to export static files for each auth page
 // See https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation

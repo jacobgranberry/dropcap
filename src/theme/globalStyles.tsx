@@ -14,10 +14,17 @@ const makeGlobalStyles = (theme) => css`
 
   body {
     min-height: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
     background: ${theme.colors.background};
   }
+
+  #__next {
+    height: 100%;
+    width: 100%;
+  }
+
   main {
     display: block;
   }

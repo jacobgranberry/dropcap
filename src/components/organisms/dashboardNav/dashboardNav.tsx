@@ -2,8 +2,11 @@ import React from 'react';
 import { Flex, Box, Text } from 'rebass';
 import { Container } from '../../atoms/container/container';
 import Link from 'next/link';
+import { useAuth } from '../../../utils/hooks/useAuth';
 
 export const DashboardNav = () => {
+  const { signout } = useAuth();
+
   return (
     <Box as="header" className="nav" width={1}>
       <Container variant="default">
@@ -15,6 +18,7 @@ export const DashboardNav = () => {
           flexDirection="row"
           justifyContent="space-between"
           alignItems="center"
+          onClick={() => signout()}
         >
           log out{' '}
         </Flex>

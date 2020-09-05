@@ -10,7 +10,6 @@ function AuthSocial(props) {
     google: 'Google',
     facebook: 'Facebook',
     twitter: 'Twitter',
-    github: 'GitHub',
   };
 
   const onSigninWithProvider = (provider) => {

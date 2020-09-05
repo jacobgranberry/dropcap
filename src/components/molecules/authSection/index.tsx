@@ -1,9 +1,9 @@
 import React from 'react';
-import Section from '../../atoms/section';
 import SectionHeader from '../../atoms/sectionHeader';
 import Auth from '../auth';
+import { Flex } from 'rebass';
 
-function AuthSection(props) {
+const AuthSection = ({ type, providers, afterAuthPath }) => {
   // Values for each auth type
   const allTypeValues = {
     signin: {
@@ -31,37 +31,29 @@ function AuthSection(props) {
   };
 
   // Ensure we have a valid auth type
-  const currentType = allTypeValues[props.type] ? props.type : 'signup';
+  const currentType = allTypeValues[type] ? type : 'signup';
 
   // Get values for current auth type
   const typeValues = allTypeValues[currentType];
 
   return (
-    <Section
-      color={props.color}
-      size={props.size}
-      backgroundImage={props.backgroundImage}
-      backgroundImageOpacity={props.backgroundImageOpacity}
-    >
-      <div className="AuthSection__container container">
-        <SectionHeader
-          title={allTypeValues[currentType].title}
-          subtitle=""
-          size={3}
-          spaced={true}
-          className="has-text-centered"
-        />
-        <Auth
-          type={currentType}
-          typeValues={typeValues}
-          parentColor={props.color}
-          providers={props.providers}
-          afterAuthPath={props.afterAuthPath}
-          key={currentType}
-        />
-      </div>
-    </Section>
+    <Flex flexDirection="column" px={12} justifyContent="center" alignItems="center" width={1}>
+      <SectionHeader
+        title={allTypeValues[currentType].title}
+        subtitle=""
+        size={3}
+        spaced={true}
+        className="has-text-centered"
+      />
+      <Auth
+        type={currentType}
+        typeValues={typeValues}
+        providers={providers}
+        afterAuthPath={afterAuthPath}
+        key={currentType}
+      />
+    </Flex>
   );
-}
+};
 
 export default AuthSection;

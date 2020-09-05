@@ -5,12 +5,12 @@ import AuthSocial from '../../atoms/authSocial';
 import AuthFooter from '../../atoms/authFooter';
 import { useRouter } from 'next/router';
 
-function Auth(props) {
+const Auth = ({ afterAuthPath, type, typeValues, providers }) => {
   const router = useRouter();
   const [formAlert, setFormAlert] = useState(null);
 
   const handleAuth = (user) => {
-    router.push(props.afterAuthPath);
+    router.push(afterAuthPath);
   };
 
   const handleFormAlert = (data) => {
@@ -21,24 +21,18 @@ function Auth(props) {
     <>
       {formAlert && <FormAlert type={formAlert.type} message={formAlert.message}></FormAlert>}
 
-      <AuthForm
-        type={props.type}
-        typeValues={props.typeValues}
-        parentColor={props.parentColor}
-        onAuth={handleAuth}
-        onFormAlert={handleFormAlert}
-      ></AuthForm>
+      <AuthForm type={type} typeValues={typeValues} onAuth={handleAuth} onFormAlert={handleFormAlert}></AuthForm>
 
-      {['signup', 'signin'].includes(props.type) && (
+      {['signup', 'signin'].includes(type) && (
         <>
-          {props.providers && props.providers.length && (
+          {providers && providers.length && (
             <>
               <div className="Auth__social-divider has-text-centered is-size-7">OR</div>
               <AuthSocial
-                type={props.type}
-                buttonText={props.typeValues.buttonText}
+                type={type}
+                buttonText={typeValues.buttonText}
                 showLastUsed={true}
-                providers={props.providers}
+                providers={providers}
                 onAuth={handleAuth}
                 onError={(message) => {
                   handleFormAlert({
@@ -46,15 +40,15 @@ function Auth(props) {
                     message: message,
                   });
                 }}
-              ></AuthSocial>
+              />
             </>
           )}
 
-          <AuthFooter type={props.type} typeValues={props.typeValues}></AuthFooter>
+          <AuthFooter type={type} typeValues={typeValues}></AuthFooter>
         </>
       )}
     </>
   );
-}
+};
 
 export default Auth;

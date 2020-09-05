@@ -74,7 +74,7 @@ function AuthForm(props) {
           type="email"
           placeholder="Email"
           error={errors.email}
-          inputRef={register({
+          ref={register({
             required: 'Please enter an email',
           })}
         />
@@ -82,12 +82,11 @@ function AuthForm(props) {
 
       {['signup', 'signin', 'changepass'].includes(props.type) && (
         <Input
-          size={props.inputSize}
           name="pass"
           type="password"
           placeholder="Password"
           error={errors.pass}
-          inputRef={register({
+          ref={register({
             required: 'Please enter a password',
           })}
         />
@@ -95,12 +94,11 @@ function AuthForm(props) {
 
       {['signup', 'changepass'].includes(props.type) && (
         <Input
-          size={props.inputSize}
           name="confirmPass"
           type="password"
           placeholder="Confirm Password"
           error={errors.confirmPass}
-          inputRef={register({
+          ref={register({
             required: 'Please enter your password again',
             validate: (value) => {
               if (value === getValues().pass) {
@@ -115,7 +113,7 @@ function AuthForm(props) {
 
       <div className="field">
         <p className="control ">
-          <Button>{props.typeValues.buttonText}</Button>
+          <Button type="submit">{props.typeValues.buttonText}</Button>
         </p>
       </div>
     </form>
