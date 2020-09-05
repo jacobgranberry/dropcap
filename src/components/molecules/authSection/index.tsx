@@ -1,7 +1,7 @@
 import React from 'react';
 import Section from '../../atoms/section';
-import SectionHeader from './SectionHeader';
-import Auth from './Auth';
+import SectionHeader from '../../atoms/sectionHeader';
+import Auth from '../auth';
 
 function AuthSection(props) {
   // Values for each auth type
@@ -37,7 +37,7 @@ function AuthSection(props) {
   const typeValues = allTypeValues[currentType];
 
   return (
-    <AuthSection
+    <Section
       color={props.color}
       size={props.size}
       backgroundImage={props.backgroundImage}
@@ -50,7 +50,7 @@ function AuthSection(props) {
           size={3}
           spaced={true}
           className="has-text-centered"
-        ></SectionHeader>
+        />
         <Auth
           type={currentType}
           typeValues={typeValues}
@@ -58,9 +58,9 @@ function AuthSection(props) {
           providers={props.providers}
           afterAuthPath={props.afterAuthPath}
           key={currentType}
-        ></Auth>
+        />
       </div>
-    </AuthSection>
+    </Section>
   );
 }
 

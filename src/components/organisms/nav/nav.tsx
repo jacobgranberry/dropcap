@@ -29,7 +29,7 @@ export const Nav = () => {
           </Box>
           <Box>
             {!user ? (
-              <Link href={'/login'}>
+              <Link href={'/auth/signin'}>
                 <a>Sign in</a>
               </Link>
             ) : (
