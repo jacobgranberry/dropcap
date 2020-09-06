@@ -2,15 +2,16 @@ import React from 'react';
 import { globalButtonStyles, PrimaryButton, SecondaryButton } from './styledButton';
 import { DotLoader } from './dotLoader';
 
-interface ButtonProps {
+export interface ButtonProps {
   variant: 'primary' | 'secondary';
   children: React.ReactNode | string;
   size?: 'small' | 'medium' | 'large';
-  disabled?: boolean;
-  loading?: boolean;
+  isDisabled?: boolean;
+  isLoading?: boolean;
   href?: string;
   type?: string;
   onClick?: () => void;
+  as: string;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -18,17 +19,17 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   href,
   size,
-  disabled,
-  loading,
+  isDisabled,
+  isLoading,
   onClick,
   type,
   ...props
 }) => {
-  const buttonHeight = size === 'tall' ? '56px' : size === 'normal' ? '40px' : size === 'short' ? '36px' : undefined;
-  const paddingY = size === 'tall' ? 4 : size === 'normal' ? 2 : size === 'short' ? 2 : undefined;
-  const paddingX = size === 'tall' ? 8 : size === 'normal' ? 6 : size === 'short' ? 6 : undefined;
-  const fontSize = size === 'tall' ? 4 : size === 'normal' ? 3 : size === 'short' ? 3 : undefined;
-  const dotSize = size === 'tall' ? '8px' : size === 'normal' ? '6px' : size === 'short' ? '6px' : undefined;
+  const buttonHeight = size === 'large' ? '56px' : size === 'medium' ? '40px' : size === 'small' ? '36px' : undefined;
+  const paddingY = size === 'large' ? 4 : size === 'medium' ? 2 : size === 'small' ? 2 : undefined;
+  const paddingX = size === 'large' ? 8 : size === 'medium' ? 6 : size === 'small' ? 6 : undefined;
+  const fontSize = size === 'large' ? 4 : size === 'medium' ? 3 : size === 'small' ? 3 : undefined;
+  const dotSize = size === 'large' ? '8px' : size === 'medium' ? '6px' : size === 'small' ? '6px' : undefined;
 
   const initialAnimation = {
     transform: 'translate3d(0px, 0px, 0px)',
@@ -36,21 +37,21 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   const hoverAnimation = {
-    transform: disabled || loading ? initialAnimation.transform : 'translate3d(0px, -2px, 0px)',
-    boxShadow: disabled || loading ? initialAnimation.boxShadow : '0px 2px 6px 0px rgba(0, 0, 0, 0.2)',
+    transform: isDisabled || isLoading ? initialAnimation.transform : 'translate3d(0px, -2px, 0px)',
+    boxShadow: isDisabled || isLoading ? initialAnimation.boxShadow : '0px 2px 6px 0px rgba(0, 0, 0, 0.2)',
   };
 
   const focusAnimation = {
-    transform: disabled || loading ? initialAnimation.transform : initialAnimation.transform,
-    boxShadow: disabled || loading ? initialAnimation.boxShadow : initialAnimation.boxShadow,
+    transform: isDisabled || isLoading ? initialAnimation.transform : initialAnimation.transform,
+    boxShadow: isDisabled || isLoading ? initialAnimation.boxShadow : initialAnimation.boxShadow,
   };
 
   const sharedProps = {
     as: href ? 'a' : 'button',
     className: `button__${variant}`,
     href,
-    onClick: loading || disabled ? undefined : onClick,
-    disabled,
+    onClick: isLoading || isDisabled ? undefined : onClick,
+    isDisabled,
     type,
   };
 
@@ -73,7 +74,7 @@ export const Button: React.FC<ButtonProps> = ({
           {...sharedProps}
           {...props}
         >
-          {loading ? <DotLoader dotSize={dotSize || '8px'} /> : <span>{children}</span>}
+          {isLoading ? <DotLoader dotSize={dotSize || '8px'} /> : <span>{children}</span>}
         </PrimaryButton>
       );
     case 'secondary':
@@ -96,7 +97,7 @@ export const Button: React.FC<ButtonProps> = ({
           {...sharedProps}
           {...props}
         >
-          {loading ? <DotLoader dotSize={dotSize || '8px'} /> : <span>{children}</span>}
+          {isLoading ? <DotLoader dotSize={dotSize || '8px'} /> : <span>{children}</span>}
         </SecondaryButton>
       );
 
