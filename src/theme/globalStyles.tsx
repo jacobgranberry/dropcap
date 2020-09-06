@@ -5,6 +5,7 @@ import { withTheme } from 'emotion-theming';
 
 const makeGlobalStyles = (theme) => css`
   html {
+    font-family: ${theme.fonts.body};
     height: 100%;
     padding: 0;
     margin: 0;

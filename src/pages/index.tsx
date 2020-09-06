@@ -1,19 +1,7 @@
-import useSWR from 'swr';
-import Link from 'next/link';
-import { useTheme } from '../contexts/themeContext';
-import { Box } from 'rebass';
+import React from 'react';
 import { MainLayout } from '../components/layouts/mainLayout/mainLayout';
 
-// const fetcher = (url: string, token: string) =>
-//   fetch(url, {
-//     method: 'GET',
-//     headers: new Headers({ 'Content-Type': 'application/json', token }),
-//     credentials: 'same-origin',
-//   }).then((res) => res.json());
-
 export const Home = (): JSX.Element => {
-  const themeState = useTheme();
-
   // const { data, error } = useSWR(user ? ['/api/getFood', user.token] : null, fetcher);
 
   // if (!user) {

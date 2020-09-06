@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, useContext, createContext } from 'react';
+import React, { FC, useState, useEffect, createContext } from 'react';
 import queryString from 'query-string';
 import firebase from '../firebase/firebase';
 import { createUser } from '../db/db';

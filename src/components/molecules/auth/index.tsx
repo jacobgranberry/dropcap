@@ -9,7 +9,7 @@ const Auth = ({ afterAuthPath, type, typeValues, providers }) => {
   const router = useRouter();
   const [formAlert, setFormAlert] = useState(null);
 
-  const handleAuth = (user) => {
+  const handleAuth = () => {
     router.push(afterAuthPath);
   };
 

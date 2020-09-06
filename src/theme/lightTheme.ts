@@ -3,9 +3,29 @@ export const lightTheme = {
   fontSizes: [8, 12, 14, 16, 18, 20, 24, 26, 30, 32, 36, 40, 44, 48],
   space: [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 48, 56, 64, 72, 80, 96],
   fonts: {
-    body: 'system-ui, sans-serif',
-    heading: 'inherit',
+    body: 'Poppins, sans-serif;',
+    heading: 'p22-mackinac-pro, serif;',
     monospace: 'Menlo, monospace',
+  },
+  colors: {
+    background: '#ffffff',
+    primary: {
+      100: '#ED7837',
+    },
+    secondary: {
+      100: '#338E87',
+      200: '#DAEFEE',
+    },
+  },
+  buttons: {
+    primary: {
+      backgroundColor: 'primary.100',
+      color: 'white',
+    },
+    secondary: {
+      backgroundColor: 'white',
+      boxShadow: '',
+    },
   },
   fontWeights: {
     body: 400,
@@ -30,9 +50,12 @@ export const lightTheme = {
     large: '0 0 24px rgba(0, 0, 0, .125)',
   },
   variants: {},
-  text: {},
-  buttons: {},
-  colors: {
-    background: '#ffffff',
+  text: {
+    h1: { fontSize: [8, 10] },
+    h2: { fontSize: [6, 8] },
+    h3: { fontSize: [5, 6] },
+    h4: { fontSize: [4, 5] },
+    h5: { fontSize: [3, 4] },
+    h6: { fontSize: [3] },
   },
 };

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Input } from '@rebass/forms';
-import { Button } from 'rebass';
+import { Button } from '../../atoms/button';
 import { useAuth } from '../../../utils/hooks/useAuth';
 import { useForm } from 'react-hook-form';
 
@@ -113,7 +113,9 @@ function AuthForm(props) {
 
       <div className="field">
         <p className="control ">
-          <Button type="submit">{props.typeValues.buttonText}</Button>
+          <Button type="submit" isLoading={pending}>
+            {props.typeValues.buttonText}
+          </Button>
         </p>
       </div>
     </form>

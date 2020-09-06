@@ -9,7 +9,7 @@ const AuthTypePage = () => {
 
   return (
     <Flex height="100%" flexDirection="row">
-      <Box as="section" sx={{ flexGrow: 0 }} width={[520]} bg="rebeccapurple" />
+      <Box as="section" sx={{ flexGrow: 0 }} width={[520]} bg="rebeccapurple" display={['none', null, null, 'block']} />
       <Flex as="section" flexDirection="column" flex={1}>
         <AuthSection type={type} providers={['google', 'facebook', 'twitter']} afterAuthPath="/dashboard" />
       </Flex>
@@ -29,7 +29,7 @@ export const getStaticPaths = () => ({
   fallback: true,
 });
 
-export function getStaticProps({ params }) {
+export function getStaticProps() {
   return { props: {} };
 }
 
