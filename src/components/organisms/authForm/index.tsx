@@ -113,7 +113,7 @@ function AuthForm(props) {
 
       <div className="field">
         <p className="control ">
-          <Button type="submit" isLoading={pending}>
+          <Button variant="primary" type="submit" isLoading={pending}>
             {props.typeValues.buttonText}
           </Button>
         </p>

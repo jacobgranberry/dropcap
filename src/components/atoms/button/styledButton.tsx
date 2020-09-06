@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { Button } from 'rebass';
 import { motion } from 'framer-motion';
 // Styles that every single button shares
@@ -25,5 +24,5 @@ export const globalButtonStyles = {
   },
 };
 
-export const PrimaryButton: FC = motion.custom(Button);
-export const SecondaryButton: FC = motion.custom(Button);
+export const PrimaryButton = motion.custom<any>(Button);
+export const SecondaryButton = motion.custom<any>(Button);

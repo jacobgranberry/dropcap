@@ -3,15 +3,14 @@ import { globalButtonStyles, PrimaryButton, SecondaryButton } from './styledButt
 import { DotLoader } from './dotLoader';
 
 export interface ButtonProps {
-  variant: 'primary' | 'secondary';
-  children: React.ReactNode | string;
+  variant: 'primary' | 'secondary' | null;
   size?: 'small' | 'medium' | 'large';
   isDisabled?: boolean;
   isLoading?: boolean;
   href?: string;
   type?: string;
   onClick?: () => void;
-  as: string;
+  as?: string;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -80,7 +79,7 @@ export const Button: React.FC<ButtonProps> = ({
     case 'secondary':
       return (
         <SecondaryButton
-          variant="outline_primary"
+          variant="secondary"
           initial={initialAnimation}
           whileHover={hoverAnimation}
           whileTap={focusAnimation}
