@@ -47,6 +47,7 @@ const makeGlobalStyles = (theme) => css`
 
   a {
     background-color: transparent;
+    text-decoration: none;
   }
 
   abbr[title] {

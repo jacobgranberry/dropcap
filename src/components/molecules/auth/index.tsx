@@ -4,6 +4,7 @@ import AuthForm from '../../organisms/authForm';
 import AuthSocial from '../../atoms/authSocial';
 import AuthFooter from '../../atoms/authFooter';
 import { useRouter } from 'next/router';
+import { Text } from 'rebass';
 
 const Auth = ({ afterAuthPath, type, typeValues, providers }) => {
   const router = useRouter();
@@ -21,13 +22,12 @@ const Auth = ({ afterAuthPath, type, typeValues, providers }) => {
     <>
       {formAlert && <FormAlert type={formAlert.type} message={formAlert.message}></FormAlert>}
 
-      <AuthForm type={type} typeValues={typeValues} onAuth={handleAuth} onFormAlert={handleFormAlert}></AuthForm>
-
+      <AuthForm type={type} typeValues={typeValues} onAuth={handleAuth} onFormAlert={handleFormAlert} />
+      <Text color="textAlt">OR</Text>
       {['signup', 'signin'].includes(type) && (
         <>
           {providers && providers.length && (
             <>
-              <div className="Auth__social-divider has-text-centered is-size-7">OR</div>
               <AuthSocial
                 type={type}
                 buttonText={typeValues.buttonText}

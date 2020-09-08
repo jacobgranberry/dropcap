@@ -12,7 +12,7 @@ const AuthSection = ({ type, providers, afterAuthPath }) => {
       // Submit button text
       buttonText: 'Sign in',
       // Link text to other auth types
-      linkTextSignup: 'Create an account',
+      linkTextSignup: 'Sign Up',
       linkTextForgotpass: 'Forgot Password?',
     },
     signup: {
@@ -37,7 +37,7 @@ const AuthSection = ({ type, providers, afterAuthPath }) => {
   const typeValues = allTypeValues[currentType];
 
   return (
-    <Flex flexDirection="column" px={12} justifyContent="center" alignItems="center" width={1}>
+    <Flex as="main" flexDirection="column" px={12} justifyContent="center" alignItems="center" width={1} height="100%">
       <SectionHeader
         title={allTypeValues[currentType].title}
         subtitle=""

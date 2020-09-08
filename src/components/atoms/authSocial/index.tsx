@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { Image, Box, Flex, Text } from 'rebass';
+import { Button } from '../button';
 import { useAuth } from '../../../utils/hooks/useAuth';
 
 function AuthSocial(props) {
@@ -41,26 +43,39 @@ function AuthSocial(props) {
   }, [props.showLastUsed]);
 
   return (
-    <div className="buttons">
+    <Flex flexDirection="row" my={10}>
       {props.providers.map((provider) => (
-        <button
-          className={'button is-medium is-fullwidth' + (pending === provider ? ' is-loading' : '')}
+        <Button
+          isLoading={pending}
+          sx={{
+            mx: 2,
+            minHeight: '42px',
+            cursor: 'pointer',
+            backgroundColor: 'white',
+            border: '1px solid #DEDEDE',
+            '&:hover': { backgroundColor: '#DEDEDE' },
+          }}
           onClick={() => {
             onSigninWithProvider(provider);
           }}
           key={provider}
         >
-          <div className="AuthSocial__icon icon">
-            <img src={`https://uploads.divjoy.com/icon-${provider}.svg`} alt={providerDisplayNames[provider]}></img>
-          </div>
-          <span>
-            {props.buttonText} with {providerDisplayNames[provider]}
-          </span>
+          <Flex flexDirection="row" justifyContent="center" alignItems="center">
+            <Box>
+              <Image
+                mr={2}
+                width={20}
+                src={`https://uploads.divjoy.com/icon-${provider}.svg`}
+                alt={providerDisplayNames[provider]}
+              />
+            </Box>
+            <Text color="textColor">{props.buttonText}</Text>
 
-          {provider === lastUsed && <span className="AuthSocial__tag tag is-warning">Last used</span>}
-        </button>
+            {provider === lastUsed && <span>Last used</span>}
+          </Flex>
+        </Button>
       ))}
-    </div>
+    </Flex>
   );
 }
 

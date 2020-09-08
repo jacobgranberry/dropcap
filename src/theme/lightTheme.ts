@@ -1,3 +1,5 @@
+import hexToRgba from 'hex-to-rgba';
+
 export const lightTheme = {
   breakpoints: ['640px', '768px', '1024px', '1280px'],
   fontSizes: [8, 12, 14, 16, 18, 20, 24, 26, 30, 32, 36, 40, 44, 48],
@@ -9,8 +11,12 @@ export const lightTheme = {
   },
   colors: {
     background: '#ffffff',
+    textColor: '#000000',
+    textAlt: '#666666',
     primary: {
-      100: '#ED7837',
+      100: '#EF8C57',
+      200: '#ED7837',
+      300: '#EA661F',
     },
     secondary: {
       100: '#338E87',
@@ -19,12 +25,33 @@ export const lightTheme = {
   },
   buttons: {
     primary: {
-      backgroundColor: 'primary.100',
+      backgroundColor: 'primary.200',
       color: 'white',
+      '&:hover': {
+        backgroundColor: 'primary.300',
+      },
     },
     secondary: {
       backgroundColor: 'white',
       boxShadow: '',
+    },
+  },
+  forms: {
+    input: {
+      transition: 'all 200ms',
+      minHeight: '40px',
+      border: 0,
+      backgroundColor: '#F7F6F4',
+      '&:hover': {
+        backgroundColor: 'white',
+        boxShadow: (theme) => `0 0 0 3px ${hexToRgba(theme.colors.primary['100'], 0.3)}`,
+      },
+      '&:focus': {
+        outline: 0,
+        backgroundColor: 'white',
+        boxShadow: (theme) =>
+          `0 0 0 1px ${theme.colors.primary['200']}, 0 0 0 3px ${hexToRgba(theme.colors.primary['100'], 0.3)}`,
+      },
     },
   },
   fontWeights: {

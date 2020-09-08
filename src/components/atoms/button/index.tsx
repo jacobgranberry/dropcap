@@ -3,7 +3,7 @@ import { globalButtonStyles, PrimaryButton, SecondaryButton } from './styledButt
 import { DotLoader } from './dotLoader';
 
 export interface ButtonProps {
-  variant: 'primary' | 'secondary' | null;
+  variant: 'primary' | 'secondary';
   size?: 'small' | 'medium' | 'large';
   isDisabled?: boolean;
   isLoading?: boolean;
@@ -11,6 +11,7 @@ export interface ButtonProps {
   type?: string;
   onClick?: () => void;
   as?: string;
+  sx: any;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -22,9 +23,10 @@ export const Button: React.FC<ButtonProps> = ({
   isLoading,
   onClick,
   type,
+  sx,
   ...props
 }) => {
-  const buttonHeight = size === 'large' ? '56px' : size === 'medium' ? '40px' : size === 'small' ? '36px' : undefined;
+  const buttonHeight = size === 'large' ? '46px' : size === 'medium' ? '40px' : size === 'small' ? '36px' : undefined;
   const paddingY = size === 'large' ? 4 : size === 'medium' ? 2 : size === 'small' ? 2 : undefined;
   const paddingX = size === 'large' ? 8 : size === 'medium' ? 6 : size === 'small' ? 6 : undefined;
   const fontSize = size === 'large' ? 4 : size === 'medium' ? 3 : size === 'small' ? 3 : undefined;
@@ -67,8 +69,9 @@ export const Button: React.FC<ButtonProps> = ({
             fontSize: fontSize || 4,
             paddingY: paddingY || 4,
             paddingX: paddingX || 8,
-            minHeight: buttonHeight || '56px',
+            minHeight: buttonHeight || '46px',
             minWidth: '136px',
+            ...sx,
           }}
           {...sharedProps}
           {...props}
@@ -92,6 +95,7 @@ export const Button: React.FC<ButtonProps> = ({
             paddingX: paddingX || 8,
             minHeight: buttonHeight || '40px',
             minWidth: '136px',
+            ...sx,
           }}
           {...sharedProps}
           {...props}
@@ -119,10 +123,5 @@ export const Button: React.FC<ButtonProps> = ({
     //     </Text>
     //   );
     default:
-      return (
-        <button type="button" className={`button__${variant}`}>
-          needs variant
-        </button>
-      );
   }
 };

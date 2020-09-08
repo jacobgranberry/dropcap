@@ -3,6 +3,7 @@ import { Input } from '@rebass/forms';
 import { Button } from '../../atoms/button';
 import { useAuth } from '../../../utils/hooks/useAuth';
 import { useForm } from 'react-hook-form';
+import { Flex, Box } from 'rebass';
 
 function AuthForm(props) {
   const auth = useAuth();
@@ -67,9 +68,10 @@ function AuthForm(props) {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <Flex as="form" flexDirection="column" width={1} onSubmit={handleSubmit(onSubmit)} maxWidth={486} mt={10}>
       {['signup', 'signin', 'forgotpass'].includes(props.type) && (
         <Input
+          my={2}
           name="email"
           type="email"
           placeholder="Email"
@@ -82,6 +84,7 @@ function AuthForm(props) {
 
       {['signup', 'signin', 'changepass'].includes(props.type) && (
         <Input
+          my={2}
           name="pass"
           type="password"
           placeholder="Password"
@@ -94,6 +97,7 @@ function AuthForm(props) {
 
       {['signup', 'changepass'].includes(props.type) && (
         <Input
+          my={2}
           name="confirmPass"
           type="password"
           placeholder="Confirm Password"
@@ -110,15 +114,12 @@ function AuthForm(props) {
           })}
         />
       )}
-
-      <div className="field">
-        <p className="control ">
-          <Button variant="primary" type="submit" isLoading={pending}>
-            {props.typeValues.buttonText}
-          </Button>
-        </p>
-      </div>
-    </form>
+      <Box mx="auto" my={10}>
+        <Button variant="primary" type="submit" isLoading={pending}>
+          {props.typeValues.buttonText}
+        </Button>
+      </Box>
+    </Flex>
   );
 }
 
