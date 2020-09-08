@@ -46,6 +46,7 @@ function AuthSocial(props) {
     <Flex flexDirection="row" my={10}>
       {props.providers.map((provider) => (
         <Button
+          variant="secondary"
           isLoading={pending}
           sx={{
             mx: 2,

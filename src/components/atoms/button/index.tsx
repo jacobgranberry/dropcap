@@ -11,7 +11,7 @@ export interface ButtonProps {
   type?: string;
   onClick?: () => void;
   as?: string;
-  sx: any;
+  sx?: any;
 }
 
 export const Button: React.FC<ButtonProps> = ({
