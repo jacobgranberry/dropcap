@@ -13,13 +13,14 @@ export const lightTheme = {
     background: '#ffffff',
     textColor: '#000000',
     textAlt: '#666666',
+    logoColor: '#ffffff',
     primary: {
       100: '#EF8C57',
       200: '#ED7837',
       300: '#EA661F',
     },
     secondary: {
-      100: '#338E87',
+      100: '#83598A',
       200: '#DAEFEE',
     },
   },

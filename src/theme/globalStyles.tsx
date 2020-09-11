@@ -198,6 +198,12 @@ const makeGlobalStyles = (theme) => css`
   [hidden] {
     display: none;
   }
+
+  ul {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    padding-inline-start: 0px;
+  }
 `;
 
 export const GlobalStyles = withTheme(({ theme }) => <Global styles={makeGlobalStyles(theme)} />);

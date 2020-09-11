@@ -9,7 +9,7 @@ const AuthTypePage = () => {
 
   return (
     <Flex height="100%" flexDirection="row">
-      <Box as="section" sx={{ flexGrow: 0 }} width={[520]} bg="rebeccapurple" display={['none', null, null, 'block']} />
+      <Box as="section" sx={{ flexGrow: 0 }} width={[520]} bg="secondary.100" display={['none', null, null, 'block']} />
       <Flex as="section" flexDirection="column" flex={1}>
         <AuthSection type={type} providers={['google', 'facebook', 'twitter']} afterAuthPath="/dashboard" />
       </Flex>

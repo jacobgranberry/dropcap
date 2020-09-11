@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Box } from 'rebass';
-import { Container } from '../../atoms/container/container';
+import { Container } from '../../atoms/container';
 import { useAuth } from '../../../utils/hooks/useAuth';
 
 export const DashboardNav = () => {

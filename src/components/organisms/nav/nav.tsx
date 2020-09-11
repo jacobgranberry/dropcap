@@ -1,14 +1,15 @@
 import React from 'react';
 import { Flex, Box, Text } from 'rebass';
-import { Container } from '../../atoms/container/container';
+import { Container } from '../../atoms/container';
 import Link from 'next/link';
 import { useAuth } from '../../../utils/hooks/useAuth';
+import { Logo } from '../../atoms/logo';
 
 export const Nav = () => {
   const { user, signout } = useAuth();
 
   return (
-    <Box as="header" className="nav" width={1}>
+    <Box as="header" className="nav" width={1} sx={{ gridArea: 'head' }}>
       <Container className="container" variant="default">
         <Flex
           className="nav__container"
@@ -19,7 +20,7 @@ export const Nav = () => {
           justifyContent="space-between"
           alignItems="center"
         >
-          <Box>DropCap</Box>
+          <Logo />
           <Box>
             <Flex>
               <Text>idk</Text>
