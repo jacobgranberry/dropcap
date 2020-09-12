@@ -65,6 +65,8 @@ export const lightTheme = {
     heading: 1.25,
   },
   radii: {
+    xsmall: 4,
+    small: 8,
     default: 12,
   },
   sizes: {

@@ -1,33 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { MainLayout } from '../components/layouts/mainLayout/mainLayout';
+import { useAuth } from '../utils/hooks/useAuth';
+import { useRouter } from 'next/router';
 
 export const Home = (): JSX.Element => {
-  // const { data, error } = useSWR(user ? ['/api/getFood', user.token] : null, fetcher);
+  const auth = useAuth();
+  const router = useRouter();
 
-  // if (!user) {
-  //   return (
-  //     <MainLayout>
-  //       <button onClick={() => themeState.toggle()}>
-  //         {themeState.dark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-  //       </button>
-  //       <p>Hi there!</p>
-  //       <p>
-  //         You are not signed in.{' '}
-  //         <Link href={'/login'}>
-  //           <a>Sign in</a>
-  //         </Link>
-  //       </p>
-  //     </MainLayout>
-  //   );
-  // }
+  // Redirect to dashboard
+  // if signed in.
+  useEffect(() => {
+    if (auth.user) {
+      router.push('/dashboard');
+    }
+  }, [auth, router]);
 
-  return (
-    <MainLayout>
-      main layout
-      {/* <p>You're signed in. Email: {user.email}</p> */}
-      {/* {error && <div>Failed to fetch food!</div>}
-      {data && !error ? <Box>Your favorite food is {data.food}.</Box> : <div>Loading...</div>} */}
-    </MainLayout>
-  );
+  return <MainLayout>main layout</MainLayout>;
 };
 export default Home;

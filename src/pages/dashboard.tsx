@@ -3,7 +3,7 @@ import { DashboardLayout } from '../components/layouts/dashboardLayout/dashboard
 import { useAuth } from '../utils/hooks/useAuth';
 import { useRouter } from 'next/router';
 
-const Dashboard = () => {
+const Dashboard = (): JSX.Element => {
   const auth = useAuth();
   const router = useRouter();
 
@@ -14,6 +14,7 @@ const Dashboard = () => {
       router.push('/');
     }
   }, [auth, router]);
+
   return <DashboardLayout>dashboard</DashboardLayout>;
 };
 

@@ -12,7 +12,7 @@ export const DashboardLayout = ({ children }) => {
         className="grid-container"
         sx={{
           display: 'grid',
-          gridTemplateColumns: ['1fr', null, `${isSidebarCollapsed ? '96px' : '24%'} 1fr`],
+          gridTemplateColumns: ['1fr', null, `auto 1fr`],
           gridTemplateRows: '72px 1fr',
           gridTemplateAreas: [
             `
