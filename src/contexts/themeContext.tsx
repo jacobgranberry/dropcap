@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, useContext, createContext, Dispatch } from 'react';
+import React, { FC, useState, useEffect, useContext, createContext } from 'react';
 import { ThemeProvider as EmotionThemeProvider } from 'emotion-theming';
 import { GlobalStyles } from '../theme/globalStyles';
 import theme from '../theme/theme';

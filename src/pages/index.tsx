@@ -1,43 +1,29 @@
-import useSWR from 'swr';
-import Link from 'next/link';
-import { useTheme } from '../contexts/themeContext';
-import { Box } from 'rebass';
+import React, { useEffect } from 'react';
 import { MainLayout } from '../components/layouts/mainLayout/mainLayout';
-
-// const fetcher = (url: string, token: string) =>
-//   fetch(url, {
-//     method: 'GET',
-//     headers: new Headers({ 'Content-Type': 'application/json', token }),
-//     credentials: 'same-origin',
-//   }).then((res) => res.json());
+import { useAuth } from '../utils/hooks/useAuth';
+import { useRouter } from 'next/router';
+import { Heading } from 'rebass';
+import { Underline } from '../components/atoms/underline';
 
 export const Home = (): JSX.Element => {
-  const themeState = useTheme();
-  // const { data, error } = useSWR(user ? ['/api/getFood', user.token] : null, fetcher);
+  const auth = useAuth();
+  const router = useRouter();
 
-  // if (!user) {
-  //   return (
-  //     <MainLayout>
-  //       <button onClick={() => themeState.toggle()}>
-  //         {themeState.dark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-  //       </button>
-  //       <p>Hi there!</p>
-  //       <p>
-  //         You are not signed in.{' '}
-  //         <Link href={'/login'}>
-  //           <a>Sign in</a>
-  //         </Link>
-  //       </p>
-  //     </MainLayout>
-  //   );
-  // }
+  // Redirect to dashboard
+  // if signed in.
+  useEffect(() => {
+    if (auth.user) {
+      router.push('/dashboard');
+    }
+  }, [auth, router]);
 
   return (
     <MainLayout>
-      main layout
-      {/* <p>You're signed in. Email: {user.email}</p> */}
-      {/* {error && <div>Failed to fetch food!</div>}
-      {data && !error ? <Box>Your favorite food is {data.food}.</Box> : <div>Loading...</div>} */}
+      <Heading fontSize="5vw">Some shit</Heading>
+      <Heading fontSize="5vw">
+        Another line <Underline>OMG</Underline>
+      </Heading>
+      <Heading fontSize="5vw">Some shit</Heading>
     </MainLayout>
   );
 };

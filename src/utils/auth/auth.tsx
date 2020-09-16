@@ -1,19 +1,15 @@
-import React, { FC, useState, useEffect, useContext, createContext } from 'react';
+import React, { FC, useState, useEffect, createContext } from 'react';
 import queryString from 'query-string';
 import firebase from '../firebase/firebase';
 import { createUser } from '../db/db';
 
-const AuthContext = createContext(null);
+export const AuthContext = createContext(null);
 
 // Context Provider component that wraps your app and makes auth object
 // available to any child component that calls the useAuth() hook.
 export const AuthProvider: FC = ({ children }) => {
   const auth = useProvideAuth();
   return <AuthContext.Provider value={auth}>{children}</AuthContext.Provider>;
-};
-// Hook that enables any component to subscribe to auth state
-export const useAuth = () => {
-  return useContext(AuthContext);
 };
 
 // Provider hook that creates auth object and handles state

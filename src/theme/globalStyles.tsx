@@ -5,6 +5,7 @@ import { withTheme } from 'emotion-theming';
 
 const makeGlobalStyles = (theme) => css`
   html {
+    font-family: ${theme.fonts.body};
     height: 100%;
     padding: 0;
     margin: 0;
@@ -14,10 +15,17 @@ const makeGlobalStyles = (theme) => css`
 
   body {
     min-height: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
     background: ${theme.colors.background};
   }
+
+  #__next {
+    height: 100%;
+    width: 100%;
+  }
+
   main {
     display: block;
   }
@@ -39,6 +47,7 @@ const makeGlobalStyles = (theme) => css`
 
   a {
     background-color: transparent;
+    text-decoration: none;
   }
 
   abbr[title] {
@@ -188,6 +197,12 @@ const makeGlobalStyles = (theme) => css`
 
   [hidden] {
     display: none;
+  }
+
+  ul {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    padding-inline-start: 0px;
   }
 `;
 
