@@ -8,7 +8,7 @@ type Theme = {
   toggle: () => void;
 };
 
-interface ThemeState {
+interface IThemeState {
   dark: boolean;
   hasThemeMounted: boolean;
 }
@@ -21,7 +21,7 @@ const ThemeContext = createContext<Theme>({
 const useTheme = () => useContext(ThemeContext);
 
 const useEffectDarkMode = (): any => {
-  const [themeState, setThemeState] = useState<ThemeState>({
+  const [themeState, setThemeState] = useState<IThemeState>({
     dark: false,
     hasThemeMounted: false,
   });
@@ -33,11 +33,11 @@ const useEffectDarkMode = (): any => {
   return [themeState, setThemeState];
 };
 
-interface ThemeProviderProps {
+interface IThemeProviderProps {
   children: React.ReactNode;
 }
 
-const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
+const ThemeProvider: FC<IThemeProviderProps> = ({ children }) => {
   const [themeState, setThemeState] = useEffectDarkMode();
 
   if (!themeState.hasThemeMounted) {

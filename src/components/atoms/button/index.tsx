@@ -2,7 +2,7 @@ import React from 'react';
 import { globalButtonStyles, PrimaryButton, SecondaryButton } from './styledButton';
 import { DotLoader } from './dotLoader';
 
-export interface ButtonProps {
+export interface IButton {
   variant: 'primary' | 'secondary';
   size?: 'small' | 'medium' | 'large';
   isDisabled?: boolean;
@@ -14,7 +14,7 @@ export interface ButtonProps {
   sx?: any;
 }
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button: React.FC<IButton> = ({
   variant,
   children,
   href,

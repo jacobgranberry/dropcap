@@ -9,7 +9,7 @@ export const Nav = () => {
   const { user, signout } = useAuth();
 
   return (
-    <Box as="header" className="nav" width={1} sx={{ gridArea: 'head' }}>
+    <Box as="header" className="nav" width={1} sx={{ gridArea: 'head', position: 'fixed', zIndex: 100 }}>
       <Container className="container" variant="default">
         <Flex
           className="nav__container"
@@ -20,7 +20,7 @@ export const Nav = () => {
           justifyContent="space-between"
           alignItems="center"
         >
-          <Logo />
+          <Logo width={130} />
           <Box>
             <Flex>
               <Text>idk</Text>

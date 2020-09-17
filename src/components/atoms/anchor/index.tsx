@@ -2,13 +2,13 @@ import React, { FC } from 'react';
 import { Link as RebassLink, Text } from 'rebass';
 import Link from 'next/link';
 
-interface AnchorProps {
+interface IAnchor {
   external?: boolean;
   sx?: any;
   href: string | undefined;
 }
 
-export const Anchor: FC<AnchorProps> = ({ href, external, sx, children }) => {
+export const Anchor: FC<IAnchor> = ({ href, external, sx, children }) => {
   if (external) {
     return (
       <RebassLink fontSize={2} href={href} {...sx}>
