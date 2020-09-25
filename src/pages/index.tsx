@@ -31,7 +31,7 @@ export const Home = (): JSX.Element => {
           </Box>
           <Box width={[1, null, 1 / 2]}>right</Box>
         </Flex>
-        <Box
+        {/* <Box
           display={['none', null, 'block']}
           height="100%"
           width={[2 / 5]}
@@ -41,7 +41,7 @@ export const Home = (): JSX.Element => {
             top: 0,
             right: 0,
           }}
-        />
+        /> */}
       </Box>
     </MainLayout>
   );
