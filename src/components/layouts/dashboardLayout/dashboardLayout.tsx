@@ -4,7 +4,7 @@ import { DashboardNav } from '../../organisms/dashboardNav/dashboardNav';
 import { Sidebar } from '../../organisms/sidebar';
 
 export const DashboardLayout = ({ children }) => {
-  const [isSidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [isSidebarOpen, setSidebarOpen] = useState(true);
 
   return (
     <Flex flexDirection="column" width={1} height="100%" as="main">
@@ -29,7 +29,7 @@ export const DashboardLayout = ({ children }) => {
           height: '100vh',
         }}
       >
-        <Sidebar isOpen={isSidebarCollapsed} setIsOpen={setSidebarCollapsed} />
+        <Sidebar isOpen={isSidebarOpen} setIsOpen={setSidebarOpen} />
         <DashboardNav />
         <Box as="main" sx={{ gridArea: 'main', border: '1px solid red' }}>
           {children}
