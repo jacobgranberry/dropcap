@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Input } from '@rebass/forms';
+import { Input, Label } from '@rebass/forms';
 import { Button } from '../../atoms/button';
 import { useAuth } from '../../../utils/hooks/useAuth';
 import { useForm } from 'react-hook-form';
 import { Flex, Box } from 'rebass';
+import { Anchor } from '../../atoms/anchor';
 
 function AuthForm(props) {
   const auth = useAuth();
@@ -70,49 +71,64 @@ function AuthForm(props) {
   return (
     <Flex as="form" flexDirection="column" width={1} onSubmit={handleSubmit(onSubmit)} maxWidth={486} mt={10}>
       {['signup', 'signin', 'forgotpass'].includes(props.type) && (
-        <Input
-          my={2}
-          name="email"
-          type="email"
-          placeholder="Email"
-          error={errors.email}
-          ref={register({
-            required: 'Please enter an email',
-          })}
-        />
+        <>
+          <Label htmlFor="email">Email</Label>
+          <Input
+            my={2}
+            name="email"
+            type="email"
+            error={errors.email}
+            ref={register({
+              required: 'Please enter an email',
+            })}
+          />
+        </>
       )}
 
       {['signup', 'signin', 'changepass'].includes(props.type) && (
-        <Input
-          my={2}
-          name="pass"
-          type="password"
-          placeholder="Password"
-          error={errors.pass}
-          ref={register({
-            required: 'Please enter a password',
-          })}
-        />
+        <>
+          <Flex flexDirection="row" justifyContent="space-between" alignItems="flex-end">
+            <Label htmlFor="pass" mt={4}>
+              Password
+            </Label>
+            <Anchor sx={{ fontSize: 2, width: '100%', textAlign: 'right' }} href="/auth/forgotpass">
+              <a>Forgot Password?</a>
+            </Anchor>
+          </Flex>
+          <Input
+            my={2}
+            name="pass"
+            type="password"
+            error={errors.pass}
+            ref={register({
+              required: 'Please enter a password',
+            })}
+          />
+        </>
       )}
 
       {['signup', 'changepass'].includes(props.type) && (
-        <Input
-          my={2}
-          name="confirmPass"
-          type="password"
-          placeholder="Confirm Password"
-          error={errors.confirmPass}
-          ref={register({
-            required: 'Please enter your password again',
-            validate: (value) => {
-              if (value === getValues().pass) {
-                return true;
-              } else {
-                return "This doesn't match your password";
-              }
-            },
-          })}
-        />
+        <>
+          <Label htmlFor="confirmPass">Confirm Password</Label>
+
+          <Input
+            my={2}
+            name="confirmPass"
+            type="password"
+            placeholder="Confirm Password"
+            error={errors.confirmPass}
+            ref={register({
+              required: 'Please enter your password again',
+              validate: (value) => {
+                if (value === getValues().pass) {
+                  return true;
+                } else {
+                  return "This doesn't match your password";
+                }
+              },
+            })}
+          />
+        </>
       )}
       <Box mx="auto" my={10}>
         <Button variant="primary" type="submit" isLoading={pending}>

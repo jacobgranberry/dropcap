@@ -20,7 +20,8 @@ export const lightTheme = {
       300: '#EA661F',
     },
     secondary: {
-      100: '#83598A',
+      100: '#227F80',
+      // 100: '#83598A',
       200: '#DAEFEE',
     },
   },
@@ -34,15 +35,17 @@ export const lightTheme = {
     },
     secondary: {
       backgroundColor: 'white',
-      boxShadow: '',
+      boxShadow: (theme) => `0 0 0 1px ${theme.colors.primary['200']}`,
     },
   },
   forms: {
     input: {
+      borderRadius: 'small',
       transition: 'all 200ms',
       minHeight: '40px',
       border: 0,
       backgroundColor: '#F7F6F4',
+      boxShadow: (theme) => `0 0 0 1px ${hexToRgba(theme.colors.textAlt, 0.3)}`,
       '&:hover': {
         backgroundColor: 'white',
         boxShadow: (theme) => `0 0 0 3px ${hexToRgba(theme.colors.primary['100'], 0.3)}`,
@@ -54,11 +57,17 @@ export const lightTheme = {
           `0 0 0 1px ${theme.colors.primary['200']}, 0 0 0 3px ${hexToRgba(theme.colors.primary['100'], 0.3)}`,
       },
     },
+    label: {
+      fontSize: 2,
+      color: 'textAlt',
+      fontWeight: 'heading',
+    },
   },
   fontWeights: {
     body: 400,
     heading: 700,
-    bold: 700,
+    bold: 500,
+    bolder: 700,
   },
   lineHeights: {
     body: 1.5,
@@ -87,5 +96,9 @@ export const lightTheme = {
     h4: { fontSize: [4, 5] },
     h5: { fontSize: [3, 4] },
     h6: { fontSize: [3] },
+    anchor: {
+      color: 'secondary.100',
+      fontWeight: 'bold',
+    },
   },
 };

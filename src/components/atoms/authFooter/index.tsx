@@ -19,14 +19,11 @@ const AuthFooter = ({ type, typeValues }) => {
 
       {type === 'signin' && (
         <>
-          <Anchor sx={{ fontSize: 2 }} href="/auth/forgotpass">
-            <a>{typeValues.linkTextForgotpass}</a>
-          </Anchor>
           <Flex flexDirection="row">
             <Text fontSize={2} mr={1} color="textAlt">
               Don&apos;t have an account?
             </Text>
-            <Anchor href="/auth/signup" sx={{ fontSize: 2 }}>
+            <Anchor href="/auth/signup" sx={{ fontSize: 2, textDecoration: 'underline' }}>
               {typeValues.linkTextSignup}
             </Anchor>
           </Flex>

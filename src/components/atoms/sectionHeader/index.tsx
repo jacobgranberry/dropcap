@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading } from 'rebass';
+import { Heading, Box } from 'rebass';
 
 function SectionHeader(props) {
   // Render nothing if no title or subtitle
@@ -8,15 +8,19 @@ function SectionHeader(props) {
   }
 
   return (
-    <header className={'SectionHeader' + (props.className ? ` ${props.className}` : '')}>
-      {props.title && <Heading variant="h1">{props.title}</Heading>}
+    <Box as="header" className="auth-section-header">
+      {props.title && (
+        <Heading variant="h1" sx={{ textAlign: 'left' }}>
+          {props.title}
+        </Heading>
+      )}
 
       {props.subtitle && (
         <p className={'subtitle' + (props.size > 4 ? ' is-6' : '')}>
           <span className="SectionHeader__no-classname">{props.subtitle}</span>
         </p>
       )}
-    </header>
+    </Box>
   );
 }
 

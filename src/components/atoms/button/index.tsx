@@ -34,17 +34,17 @@ export const Button: React.FC<IButton> = ({
 
   const initialAnimation = {
     transform: 'translate3d(0px, 0px, 0px)',
-    boxShadow: '0px 0px 0px 0px rgba(0, 0, 0, 0)',
+    // boxShadow: '0px 0px 0px 0px rgba(0, 0, 0, 0)',
   };
 
   const hoverAnimation = {
     transform: isDisabled || isLoading ? initialAnimation.transform : 'translate3d(0px, -2px, 0px)',
-    boxShadow: isDisabled || isLoading ? initialAnimation.boxShadow : '0px 2px 6px 0px rgba(0, 0, 0, 0.2)',
+    // boxShadow: isDisabled || isLoading ? initialAnimation.boxShadow : '0px 2px 6px 0px rgba(0, 0, 0, 0.2)',
   };
 
   const focusAnimation = {
     transform: isDisabled || isLoading ? initialAnimation.transform : initialAnimation.transform,
-    boxShadow: isDisabled || isLoading ? initialAnimation.boxShadow : initialAnimation.boxShadow,
+    // boxShadow: isDisabled || isLoading ? initialAnimation.boxShadow : initialAnimation.boxShadow,
   };
 
   const sharedProps = {

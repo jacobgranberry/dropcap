@@ -29,7 +29,6 @@ const Auth = ({ afterAuthPath, type, typeValues, providers }) => {
           {providers && providers.length && (
             <>
               <AuthSocial
-                type={type}
                 buttonText={typeValues.buttonText}
                 showLastUsed={true}
                 providers={providers}

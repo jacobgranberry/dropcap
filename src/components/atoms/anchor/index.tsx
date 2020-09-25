@@ -1,25 +1,31 @@
-import React, { FC } from 'react';
-import { Link as RebassLink, Text } from 'rebass';
+import React, { ReactNode } from 'react';
+import { Link as RebassLink, Text, SxStyleProp } from 'rebass';
 import Link from 'next/link';
 
-interface IAnchor {
-  external?: boolean;
-  sx?: any;
+export const Anchor = ({
+  href,
+  external,
+  sx,
+  children,
+}: {
   href: string | undefined;
-}
-
-export const Anchor: FC<IAnchor> = ({ href, external, sx, children }) => {
+  external?: boolean;
+  sx?: SxStyleProp;
+  children: string | ReactNode;
+}) => {
   if (external) {
     return (
-      <RebassLink fontSize={2} href={href} {...sx}>
+      <RebassLink className="anchor" fontSize={2} href={href} sx={{ ...sx, cursor: 'pointer' }}>
         {children}
       </RebassLink>
     );
   }
 
   return (
-    <Text {...sx}>
-      <Link href={href}>{children}</Link>
-    </Text>
+    <Link href={href}>
+      <Text variant="anchor" sx={{ ...sx, cursor: 'pointer' }}>
+        {children}
+      </Text>
+    </Link>
   );
 };
