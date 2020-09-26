@@ -48,8 +48,11 @@
     "react-firebaseui": "^4.1.0",
     "react-hook-form": "^6.7.2",
     "react-select": "^3.1.0",
+    "react-truncate": "^2.4.0",
     "reactjs-popup": "^2.0.3",
     "rebass": "^4.0.7",
+    "sass": "^1.26.11",
+    "swiper": "^6.3.1",
     "swr": "^0.3.2"
   },
   "devDependencies": {

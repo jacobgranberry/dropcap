@@ -3,6 +3,7 @@ import { CacheProvider } from '@emotion/core';
 import { ThemeProvider } from '../contexts/themeContext';
 import { cache } from 'emotion';
 import { AuthProvider } from '../utils/auth/auth';
+import 'swiper/swiper.scss';
 
 export default class App extends NextApp {
   render() {

@@ -4,7 +4,7 @@ import { Box } from 'rebass';
 export const Star = ({
   color = 'neutrals.100',
   onClick = () => {},
-  size = 24,
+  size = 18,
   style,
 }: {
   onClick: () => void;

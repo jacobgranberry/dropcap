@@ -23,7 +23,7 @@ export const Anchor = ({
 
   return (
     <Link href={href}>
-      <Text variant="anchor" sx={{ ...sx, cursor: 'pointer' }}>
+      <Text as="span" variant="anchor" sx={{ ...sx, cursor: 'pointer' }}>
         {children}
       </Text>
     </Link>

@@ -1,11 +1,9 @@
 import React from 'react';
-import { Flex, Box, Button } from 'rebass';
+import { Flex, Box } from 'rebass';
 import { Input } from '@rebass/forms';
-import { useAuth } from '../../../utils/hooks/useAuth';
+import { Avatar } from '../../atoms/avatar';
 
 export const DashboardNav = () => {
-  const { signout } = useAuth();
-
   return (
     <Box as="header" className="nav" width={1}>
       <Flex
@@ -20,7 +18,7 @@ export const DashboardNav = () => {
         alignItems="center"
       >
         <Input placeholder="Search by author, title, name" sx={{ maxWidth: 320 }} />
-        <Button onClick={() => signout()}>Log Out</Button>
+        <Avatar image="https://jacobgranberry.com/static/media/profile.2c9292dd.jpg" />
       </Flex>
     </Box>
   );

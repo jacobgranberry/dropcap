@@ -65,6 +65,7 @@ export const Sidebar = ({ isOpen, setIsOpen }) => {
           <SidebarMenuItem>Want To Read</SidebarMenuItem>
         </Box>
       </Flex>
+
       <Logout style={{ marginTop: 'auto' }} />
       {/* <SidebarProfile /> */}
     </Box>

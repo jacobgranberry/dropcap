@@ -22,7 +22,6 @@ export const lightTheme = {
     },
     secondary: {
       100: '#227F80',
-      // 100: '#83598A',
       200: '#DAEFEE',
     },
     neutrals: {
@@ -31,6 +30,11 @@ export const lightTheme = {
       300: '',
       400: '',
       500: '',
+    },
+    badges: {
+      red: '#EB403E',
+      blue: '#3EA0EB',
+      green: '#7AC5A9',
     },
   },
   buttons: {
