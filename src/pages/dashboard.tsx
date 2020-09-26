@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import Popup from 'reactjs-popup';
 import { FirstTimeUserFlow } from '../components/flows/firstTimeUserFlow';
 import { ModalLayout } from '../components/layouts/modalLayout';
+import { BookCard } from '../components/molecules/bookCard';
 
 const Dashboard = (): JSX.Element => {
   const auth = useAuth();
@@ -29,7 +30,13 @@ const Dashboard = (): JSX.Element => {
 
   return (
     <DashboardLayout>
-      {isFirstTimeUser ? (
+      <BookCard
+        bookImage="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388184640l/7235533.jpg"
+        bookTitle="The Way Of Kings"
+        bookAuthor="Brandon Sanderson"
+        bookSynopsis="oasmdomsaod"
+      />
+      {isFirstTimeUser && (
         <Popup trigger={<button className="button"> Open Modal </button>} modal nested>
           {() => (
             <ModalLayout headerLabel="First Time User Flow">
@@ -37,8 +44,6 @@ const Dashboard = (): JSX.Element => {
             </ModalLayout>
           )}
         </Popup>
-      ) : (
-        'NOT FIRST TIME USER'
       )}
     </DashboardLayout>
   );

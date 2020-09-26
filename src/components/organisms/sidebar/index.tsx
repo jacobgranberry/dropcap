@@ -1,7 +1,6 @@
 import React from 'react';
 import { Flex, Box, Text } from 'rebass';
-import { Logo } from '../../atoms/logo';
-import { SidebarProfile } from '../../molecules/sidebarProfile';
+import { Logout } from '../../atoms/logout';
 
 const SidebarMenuItem = ({ children }) => (
   <Box
@@ -31,7 +30,7 @@ export const Sidebar = ({ isOpen, setIsOpen }) => {
       sx={{
         display: ['none', null, 'flex'],
         flexDirection: 'column',
-        alignItems: 'left',
+        alignItems: 'center',
         height: '100vh',
         gridArea: 'sidebar',
         boxShadow: 'small',
@@ -53,7 +52,7 @@ export const Sidebar = ({ isOpen, setIsOpen }) => {
             setIsOpen(!isOpen);
           }}
         />
-        <Logo color="black" />
+        {/* <Logo color="black" /> */}
         <Box width={1} mt={8}>
           <SidebarMenuItem>Overview</SidebarMenuItem>
           <SidebarMenuItem>Goals</SidebarMenuItem>
@@ -66,7 +65,8 @@ export const Sidebar = ({ isOpen, setIsOpen }) => {
           <SidebarMenuItem>Want To Read</SidebarMenuItem>
         </Box>
       </Flex>
-      <SidebarProfile />
+      <Logout style={{ marginTop: 'auto' }} />
+      {/* <SidebarProfile /> */}
     </Box>
   );
 };

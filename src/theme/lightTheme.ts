@@ -14,6 +14,7 @@ export const lightTheme = {
     textColor: '#000000',
     textAlt: '#666666',
     logoColor: '#ffffff',
+    rating: '#FBC200',
     primary: {
       100: '#EF8C57',
       200: '#ED7837',
@@ -23,6 +24,13 @@ export const lightTheme = {
       100: '#227F80',
       // 100: '#83598A',
       200: '#DAEFEE',
+    },
+    neutrals: {
+      100: '#E4E8EB',
+      200: '',
+      300: '',
+      400: '',
+      500: '',
     },
   },
   buttons: {
@@ -85,6 +93,7 @@ export const lightTheme = {
   },
   borders: {},
   shadows: {
+    xsmall: '-2px 6px 19px 0px #7f818e',
     small: '0 0 4px rgba(0, 0, 0, .125)',
     large: '0 0 24px rgba(0, 0, 0, .125)',
   },
