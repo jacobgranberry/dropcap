@@ -3,8 +3,8 @@ import { Flex, Heading, Text, Box } from 'rebass';
 import { Badge } from '../../atoms/badge';
 import { Book } from '../../atoms/book';
 import { StarRating } from '../../atoms/starRating';
-import Truncate from 'react-truncate';
-import { Anchor } from '../../atoms/anchor';
+// import Truncate from 'react-truncate';
+// import { Anchor } from '../../atoms/anchor';
 export const BookCard = ({
   bookImage,
   bookTitle,
@@ -35,13 +35,14 @@ export const BookCard = ({
       </Heading>
       <Text fontSize={[2]} mt={1}>{`by ${bookAuthor}`}</Text>
       <StarRating totalStars={5} currentRating={3} sx={{ marginY: 2 }} />
-      <Box sx={{ span: { fontSize: 2 } }}>
-        <Truncate
-          lines={6}
+      <Box maxHeight={246} sx={{ overflow: 'hidden', span: { fontSize: 2 } }}>
+        <Text fontSize={2}>{bookSynopsis}</Text>
+        {/* <Truncate
+          lines={5}
           trimWhitespace
           ellipsis={
             <span>
-              ...{' '}
+              ...
               <Anchor sx={{ fontSize: 2, textDecoration: 'underline' }} href="/link/to/article">
                 Read more
               </Anchor>
@@ -49,7 +50,7 @@ export const BookCard = ({
           }
         >
           {bookSynopsis}
-        </Truncate>
+        </Truncate> */}
       </Box>
       <Flex flexDirection="row" mt="auto">
         <Badge color="red">Fantasy</Badge>

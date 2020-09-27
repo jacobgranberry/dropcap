@@ -204,6 +204,13 @@ const makeGlobalStyles = (theme) => css`
     margin-block-end: 0em;
     padding-inline-start: 0px;
   }
+
+  /* Slider */
+  .swiper-container {
+    padding: 32px;
+    /* padding-left: 32px;
+    padding-right: 32px; */
+  }
 `;
 
 export const GlobalStyles = withTheme(({ theme }) => <Global styles={makeGlobalStyles(theme)} />);
